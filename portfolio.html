@@ -1,0 +1,125 @@
+<!doctype html>
+
+<html>
+  <head>
+    <title>im bad</title>
+    <link rel="stylesheet" type="text/css" href="portfolio.css">
+  </head>
+
+  <body>
+    <div id="sidebar">
+      <div id="home" class="sidebarcontainer">
+        <p>Home</p>
+      </div>
+      <div id="about" class="sidebarcontainer">
+        <p>About</p>
+      </div>
+      <div id="contact" class="sidebarcontainer">
+        <p>Contact</p>
+      </div>
+    </div>
+    <div id="contentcontainer">
+      <div id="container1" class="container">
+      </div>
+      <div id="container2" class="container">
+      </div>
+    </div>
+    <script type="text/javascript">
+      var xhttp = new XMLHttpRequest();
+      xhttp.onreadystatechange = function() {
+          if (this.readyState == 4 && this.status == 200) {
+            cardcreation(this);
+          }
+        };
+        xhttp.open("GET", "portfolio.xml", true);
+        xhttp.send();
+
+        function cardcreation(xml) {
+          var xmlDoc = xml.responseXML;
+          var imgs = xmlDoc.getElementsByTagName("image");
+          var container1 = document.getElementById("container1");
+          var container2 = document.getElementById("container2");
+          var containers = [container1, container2];
+          if (window.innerWidth >= 1500) {
+            var container3 = document.createElement("DIV");
+            container3.classname = "container";
+            container2.style.marginRight = "5vw";
+            container1.style.marginRight = "5vw";
+            containers.push(container3);
+            document.getElementById("contentcontainer").appendChild(container3);
+          };
+          console.log(containers.length);
+          console.log(window.innerWidth);
+          for (i = 0; i < imgs.length; i++) {
+            console.log(containers.length);
+            var x = imgs[i];
+            var card = document.createElement("DIV");
+            var topcard = document.createElement("DIV");
+            var bottomcard = document.createElement("DIV");
+            var datep = document.createElement("P");
+            if (window.innerWidth < 1500) {
+              if (i <= imgs.length / 2) {
+                card.className = "card";
+                topcard.className = "cardtop";
+                bottomcard.className = "cardbottom";
+                datep.className = "cardbottom";
+                card.id = "card" + [i];
+                card.appendChild(topcard);
+                card.appendChild(bottomcard);
+                bottomcard.appendChild(datep);
+                container1.appendChild(card);
+              } else {
+                card.className = "card";
+                topcard.className = "cardtop";
+                bottomcard.className = "cardbottom";
+                datep.className = "cardbottom";
+                card.id = "card" + [i];
+                card.appendChild(topcard);
+                card.appendChild(bottomcard);
+                bottomcard.appendChild(datep);
+                container2.appendChild(card);
+                }
+              } else {
+                if (i <= imgs.length / 3) {
+                  card.className = "card";
+                  topcard.className = "cardtop";
+                  bottomcard.className = "cardbottom";
+                  datep.className = "cardbottom";
+                  card.id = "card" + [i];
+                  card.appendChild(topcard);
+                  card.appendChild(bottomcard);
+                  bottomcard.appendChild(datep);
+                  container1.appendChild(card);
+                } else if (i > imgs.length / 3 && i <= imgs.length * 2/3) {
+                  card.className = "card";
+                  topcard.className = "cardtop";
+                  bottomcard.className = "cardbottom";
+                  datep.className = "cardbottom";
+                  card.id = "card" + [i];
+                  card.appendChild(topcard);
+                  card.appendChild(bottomcard);
+                  bottomcard.appendChild(datep);
+                  container2.appendChild(card);
+                } else {
+                  card.className = "card";
+                  topcard.className = "cardtop";
+                  bottomcard.className = "cardbottom";
+                  datep.className = "cardbottom";
+                  card.id = "card" + [i];
+                  card.appendChild(topcard);
+                  card.appendChild(bottomcard);
+                  bottomcard.appendChild(datep);
+                  container3.appendChild(card);
+                }
+              }
+
+            var height = x.childNodes[5].firstChild.nodeValue * 200;
+            datep.innerHTML = x.childNodes[1].firstChild.nodeValue;
+            topcard.style.backgroundImage = x.childNodes[3].firstChild.nodeValue;
+            card.style.height = height +"px";
+            topcard.style.height = height - 50 + "px"
+          };
+        };
+    </script>
+  </body>
+</html>
