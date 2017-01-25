@@ -2,124 +2,55 @@
 
 <html>
   <head>
-    <title>im bad</title>
-    <link rel="stylesheet" type="text/css" href="portfolio.css">
+    <title>Portfolio</title>
+    <link rel="stylesheet" href="css\bootstrap.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#f5f5f5">
   </head>
 
   <body>
-    <div id="sidebar">
-      <div id="home" class="sidebarcontainer">
-        <p>Home</p>
+    <nav class="navbar navbar-default">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <a class="navbar-brand" href="index.html">Portfolio</a>
+        </div>
+        <ul class="nav navbar-nav">
+          <li class="active"><a href="index.html">Home</a></li>
+          <li><a href="gallery.html">Gallery</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
       </div>
-      <div id="about" class="sidebarcontainer">
-        <p>About</p>
-      </div>
-      <div id="contact" class="sidebarcontainer">
-        <p>Contact</p>
-      </div>
-    </div>
-    <div id="contentcontainer">
-      <div id="container1" class="container">
-      </div>
-      <div id="container2" class="container">
-      </div>
-    </div>
-    <script type="text/javascript">
-      var xhttp = new XMLHttpRequest();
-      xhttp.onreadystatechange = function() {
-          if (this.readyState == 4 && this.status == 200) {
-            cardcreation(this);
-          }
-        };
-        xhttp.open("GET", "portfolio.xml", true);
-        xhttp.send();
+    </nav>
 
-        function cardcreation(xml) {
-          var xmlDoc = xml.responseXML;
-          var imgs = xmlDoc.getElementsByTagName("image");
-          var container1 = document.getElementById("container1");
-          var container2 = document.getElementById("container2");
-          var containers = [container1, container2];
-          if (window.innerWidth >= 1500) {
-            var container3 = document.createElement("DIV");
-            container3.classname = "container";
-            container2.style.marginRight = "5vw";
-            container1.style.marginRight = "5vw";
-            containers.push(container3);
-            document.getElementById("contentcontainer").appendChild(container3);
-          };
-          console.log(containers.length);
-          console.log(window.innerWidth);
-          for (i = 0; i < imgs.length; i++) {
-            console.log(containers.length);
-            var x = imgs[i];
-            var card = document.createElement("DIV");
-            var topcard = document.createElement("DIV");
-            var bottomcard = document.createElement("DIV");
-            var datep = document.createElement("P");
-            if (window.innerWidth < 1500) {
-              if (i <= imgs.length / 2) {
-                card.className = "card";
-                topcard.className = "cardtop";
-                bottomcard.className = "cardbottom";
-                datep.className = "cardbottom";
-                card.id = "card" + [i];
-                card.appendChild(topcard);
-                card.appendChild(bottomcard);
-                bottomcard.appendChild(datep);
-                container1.appendChild(card);
-              } else {
-                card.className = "card";
-                topcard.className = "cardtop";
-                bottomcard.className = "cardbottom";
-                datep.className = "cardbottom";
-                card.id = "card" + [i];
-                card.appendChild(topcard);
-                card.appendChild(bottomcard);
-                bottomcard.appendChild(datep);
-                container2.appendChild(card);
-                }
-              } else {
-                if (i <= imgs.length / 3) {
-                  card.className = "card";
-                  topcard.className = "cardtop";
-                  bottomcard.className = "cardbottom";
-                  datep.className = "cardbottom";
-                  card.id = "card" + [i];
-                  card.appendChild(topcard);
-                  card.appendChild(bottomcard);
-                  bottomcard.appendChild(datep);
-                  container1.appendChild(card);
-                } else if (i > imgs.length / 3 && i <= imgs.length * 2/3) {
-                  card.className = "card";
-                  topcard.className = "cardtop";
-                  bottomcard.className = "cardbottom";
-                  datep.className = "cardbottom";
-                  card.id = "card" + [i];
-                  card.appendChild(topcard);
-                  card.appendChild(bottomcard);
-                  bottomcard.appendChild(datep);
-                  container2.appendChild(card);
-                } else {
-                  card.className = "card";
-                  topcard.className = "cardtop";
-                  bottomcard.className = "cardbottom";
-                  datep.className = "cardbottom";
-                  card.id = "card" + [i];
-                  card.appendChild(topcard);
-                  card.appendChild(bottomcard);
-                  bottomcard.appendChild(datep);
-                  container3.appendChild(card);
-                }
-              }
+<!-- Body starts here -->
 
-            var height = x.childNodes[5].firstChild.nodeValue * 200;
-            datep.innerHTML = x.childNodes[1].firstChild.nodeValue;
-            topcard.style.backgroundImage = x.childNodes[3].firstChild.nodeValue;
-            card.style.height = height +"px";
-            topcard.style.height = height - 50 + "px"
-          };
-        };
-    </script>
+    <div class="container-fluid">
+      <div class="row">
+
+        <div class="col-xs-12 col-md-8">
+          <div class="panel panel-default">
+            <div class="panel-body">
+              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent in mi a massa aliquam hendrerit. Aenean enim tortor, bibendum sed sapien eu, fringilla facilisis mauris. Nullam id ipsum eleifend, sollicitudin dui in, aliquet tellus. Quisque vel nisi at lacus vulputate dapibus eu a nisl. Aenean egestas odio id velit suscipit dapibus. Vivamus gravida quis massa in laoreet. Integer feugiat nunc ac velit eleifend, vitae fermentum lacus vulputate. Curabitur sed felis lobortis, dapibus odio eget, gravida metus. Nullam felis ligula, bibendum eu elit eu, pellentesque tempor lorem.</p>
+              <p>Donec in dui eu libero gravida tempor. Phasellus eu faucibus felis. Maecenas gravida laoreet nisi in pretium. Sed iaculis tincidunt elit a ultrices. Morbi posuere tellus nec suscipit feugiat. Suspendisse consequat nisl urna, quis lobortis nisl varius vel. Fusce ut eleifend neque. In velit sem, euismod ac aliquam et, molestie ac elit. Vivamus orci libero, convallis non augue ut, eleifend hendrerit erat. Vivamus in purus ac magna varius lacinia. Phasellus est arcu, lacinia nec diam sed, accumsan tempus eros. Etiam sodales et neque eget sollicitudin. Aliquam rhoncus vestibulum ex, vitae vehicula orci dictum a. Vestibulum varius tincidunt quam ac venenatis.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-xs-12 col-md-4">
+          <div class="panel panel-default">
+            <div class="panel-heading">
+              <p>More Info</p>
+            </div>
+            <div class="panel-body">
+              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean nec lacus augue. Fusce id libero at urna hendrerit lacinia. Ut non eros placerat justo hendrerit malesuada vel vel ligula. Vivamus dui lorem, rutrum a vulputate vitae, elementum quis lacus. Mauris ornare, libero ac vulputate varius, odio felis elementum dolor, in euismod nisi dolor vel sem. Proin sit amet lacus varius, tristique quam eget, luctus ante. Phasellus semper dolor ac magna.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
   </body>
 </html>
