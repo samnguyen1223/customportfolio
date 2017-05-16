@@ -1,0 +1,65 @@
+<!doctype html>
+
+<html>
+<head>
+        <title>Idle RPG</title>
+        <link rel="stylesheet" href="rpg.css">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+</head>
+
+<body>
+    <div id="navbar">
+        <div class="navitem">
+            <h5>IDLE RPG</h5>
+        </div>
+        <div id="back" class="navitem">
+            <a href="">Back to my works</a>
+        </div>
+    </div>
+
+    <div id="container">
+
+        <div id="user">
+            <h1 id="userhpname">You</h1>
+            <p id="gold">0g</p>
+            <p id="exp">0 exp</p>
+            <p id="userstats">0 ATK / 0 DEF</p>
+            <p id="userhptext">100/100</p>
+            <div id="userhpoutline">
+                <div id="userhpbar">
+                </div>
+            </div>
+        </div>
+
+        <div id="enemy">
+            <h2 id="enemyhpname">Slime Lvl 1</h2>
+            <p id="enemystats">1 ATK / 0 DEF</p>
+            <p id="enemyhptext">10/10</p>
+            <div id="enemyhpoutline">
+                <div id="enemyhpbar">
+                </div>
+            </div>
+        </div>
+
+        <div id="equipment">
+            <div id="weapon" class="equipmentblock">
+                <p id="weapontext">LVL 1 Weapon / 1g</p><button onclick="levelEquipment(0)" id="weaponbtn" class="disabled" disabled>+1 LVL</button>
+            </div>
+            <div id="armor" class="equipmentblock">
+                <p id="armortext">LVL 1 Armor / 1g</p><button onclick="levelEquipment(1)" id="armorbtn" class="disabled" disabled>+1 LVL</button>
+            </div>
+        </div>
+
+        <div id="skills">
+            <div id="class">
+                <button onclick="chooseClass(0)" id="dpsbtn" class="disabled" disabled>DPS (+50% ATK, -25% DEF, -25% HP)<br>Tier 1<br>100exp</button>
+                <button onclick="chooseClass(1)" id="tankbtn" class="disabled" disabled>Tank (-25% ATK, +25% DEF, +50% HP)<br>Tier 1<br>100exp</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="rpg.js"></script>
+</body>
+</html>

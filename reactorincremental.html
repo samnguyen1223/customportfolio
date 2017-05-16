@@ -1,0 +1,63 @@
+<!doctype html>
+
+<html>
+<head>
+        <title>Reactor Incremental Clone</title>
+        <link rel="stylesheet" href="css\bootstrap.css">
+        <link rel="stylesheet" href="reactorincremental.css">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+</head>
+
+<body onload="main()">
+    <nav class="navbar navbar-default">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <p class="navbar-brand">Reactor Incremental</a>
+            </div>
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="index.html">Back to My Works</a></li>
+            </ul>
+            </div>
+    </nav>
+
+    <div id="explanation">
+        <p>Welcome to a clone of Reactor Incremental, a project created by Sam Nguyen to develop a better understanding of web based applications.</p>
+    </div>
+    <div id="main" class="flex-container">
+        <div id="selector" class="flex-container flex-item">
+            <div id="info">
+                <div id="money-container">
+                    <p id="money-counter">$0</p>
+                    <div id="money-bar-container">
+                        <div id="money-bar">
+                        </div>
+                    </div>
+                    <button id="money-button" onclick="collect()" type="button" class="btn">Power:</button>
+                </div>
+                <div id="heat-container">
+                    <p id="heat-counter">Heat: 0</p>
+                    <div id="heat-bar-container">
+                        <div id="heat-bar">
+                        </div>
+                    </div>
+                    <button id="heat-button" onclick="heatRemoval()" class="btn">Remove 10 heat</button>
+                </div>
+            </div>
+            <div id="tabs">
+                <button class="tab btn" id="tab1">Cell</button>
+                <button class="tab btn" id="tab2">Heat</button>
+                <div class="column" id="s1">
+                    <div class="block" id="s101" onclick="changeSelection(101)">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="area" class="flex-item">
+        </div>
+    </div>
+
+    <script src="reactorincremental.js"></script>
+</body>
+</html>
